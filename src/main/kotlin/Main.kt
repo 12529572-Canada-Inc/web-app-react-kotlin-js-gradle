@@ -1,5 +1,10 @@
+import react.dom.*
 import kotlinx.browser.document
 
 fun main() {
-    document.bgColor = "blue"
+    render(document.getElementById("root")) {
+        h1 {
+            +"Hello, React+Kotlin/JS!"
+        }
+    }
 }
