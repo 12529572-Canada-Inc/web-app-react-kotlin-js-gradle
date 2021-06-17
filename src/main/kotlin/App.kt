@@ -49,6 +49,12 @@ class App : RComponent<RProps, AppState>() {
             }
             videoList {
                 videos = unwatchedVideos
+                selectedVideo = state.currentVideo
+                onSelectVideo = { video ->
+                    setState {
+                        currentVideo = video
+                    }
+                }
             }
 
             h3 {
@@ -56,6 +62,12 @@ class App : RComponent<RProps, AppState>() {
             }
             videoList {
                 videos = watchedVideos
+                selectedVideo = state.currentVideo
+                onSelectVideo = { video ->
+                    setState {
+                        currentVideo = video
+                    }
+                }
             }
         }
         styledDiv {
