@@ -38,7 +38,7 @@ external interface AppState : RState {
 
 // Define React component class
 @JsExport
-class App : RComponent<RProps, RState>() {
+class App : RComponent<RProps, AppState>() {
     override fun RBuilder.render() {
         h1 {
             +"KotlinConf Explorer"
