@@ -73,6 +73,20 @@ class App : RComponent<RProps, AppState>() {
         state.currentVideo?.let { currentVideo ->
             videoPlayer {
                 video = currentVideo
+                unwatchedVideo = currentVideo in state.unwatchedVideos
+                onWatchedButtonPressed = {
+                    if (video in state.unwatchedVideos) {
+                        setState {
+                            unwatchedVideos -= video
+                            watchedVideos += video
+                        }
+                    } else {
+                        setState {
+                            watchedVideos -= video
+                            unwatchedVideos += video
+                        }
+                    }
+                }
             }
         }
     }
