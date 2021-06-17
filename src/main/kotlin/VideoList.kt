@@ -3,10 +3,17 @@ import kotlinx.html.js.onClickFunction
 import react.*
 import react.dom.*
 
+// Define props
 external interface VideoListProps: RProps {
     var videos: List<Video>
 }
 
+// Define state
+external interface VideoListState: RState {
+    var selectedVideo: Video?
+}
+
+// Define class
 @JsExport
 class VideoList: RComponent<VideoListProps, RState>() {
     override fun RBuilder.render() {
@@ -24,6 +31,7 @@ class VideoList: RComponent<VideoListProps, RState>() {
     }
 }
 
+// Define HOFs
 fun RBuilder.videoList(handler: VideoListProps.() -> Unit): ReactElement {
     return child(VideoList::class) {
         this.attrs(handler)
