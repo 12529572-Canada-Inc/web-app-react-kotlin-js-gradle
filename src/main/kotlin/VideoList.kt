@@ -6,6 +6,7 @@ import react.dom.*
 external interface VideoListProps: RProps {
     var videos: List<Video>
     var selectedVideo: Video?
+    var onSelectVideo: (Video) -> Unit
 }
 
 // Define React component class
@@ -17,9 +18,9 @@ class VideoList: RComponent<VideoListProps, RState>() {
                 key = video.id.toString()
                 attrs {
                     onClickFunction = {
-//                        setState {
-//                            selectedVideo = video
-//                        }
+                        setState {
+                            props.onSelectVideo(video)
+                        }
                     }
                 }
                 if (video == props.selectedVideo) {
