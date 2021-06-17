@@ -39,15 +39,15 @@ class App : RComponent<RProps, RState>() {
             h3 {
                 +"Videos to watch"
             }
-            child(VideoList::class) {
-                attrs.videos = unwatchedVideos
+            videoList {
+                videos = unwatchedVideos
             }
 
             h3 {
                 +"Videos watched"
             }
-            child(VideoList::class) {
-                attrs.videos = watchedVideos
+            videoList {
+                videos = watchedVideos
             }
         }
         styledDiv {
