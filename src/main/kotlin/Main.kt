@@ -16,6 +16,18 @@ data class KotlinVideo(
 ) : Video
 
 fun main() {
+    // Create list of watched/ unwatched videos
+    val unwatchedVideos = listOf(
+        KotlinVideo(1, "Building and breaking things", "John Doe", "https://youtu.be/PsaFVLr8t4E"),
+        KotlinVideo(2, "The development process", "Jane Smith", "https://youtu.be/PsaFVLr8t4E"),
+        KotlinVideo(3, "The Web 7.0", "Matt Miller", "https://youtu.be/PsaFVLr8t4E"),
+    )
+
+    val watchedVideos = listOf(
+        KotlinVideo(4, "Mouse-less development", "Tom Jerry", "https://youtu.be/PsaFVLr8t4E")
+    )
+
+    // render the components
     render(document.getElementById("root")) {
         h1 {
             +"KotlinConf Explorer"
@@ -24,21 +36,19 @@ fun main() {
             h3 {
                 +"Videos to watch"
             }
-            p {
-                +"John Doe: Building and breaking things"
-            }
-            p {
-                +"Jane Smith: The development process"
-            }
-            p {
-                +"Matt Miller: The Web 7.0"
+            for(video in unwatchedVideos) {
+                p {
+                    +"${video.speaker}: ${video.title}"
+                }
             }
 
             h3 {
                 +"Videos watched"
             }
-            p {
-                +"Tom Jerry: Mouseless development"
+            for(video in watchedVideos) {
+                p {
+                    +"${video.speaker}: ${video.title}"
+                }
             }
         }
         div {
