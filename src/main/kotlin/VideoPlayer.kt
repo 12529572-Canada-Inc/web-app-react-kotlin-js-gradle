@@ -1,13 +1,17 @@
 import kotlinx.css.*
+import kotlinx.html.js.onClickFunction
 import react.*
 import react.dom.h3
 import react.dom.img
 import styled.css
+import styled.styledButton
 import styled.styledDiv
 
 // Define props
 external interface VideoPlayerProps : RProps {
     var video: Video
+    var onWatchedButtonPressed: (Video) -> Unit
+    var unwatchedVideo: Boolean
 }
 
 // Define React component class
@@ -22,6 +26,23 @@ class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
             }
             h3 {
                 +"${props.video.speaker}: ${props.video.title}"
+            }
+            styledButton {
+                css {
+                    display = Display.block
+                    backgroundColor = if(props.unwatchedVideo) Color.lightGreen else Color.red
+                }
+                attrs {
+                    onClickFunction = {
+                        props.onWatchedButtonPressed(props.video)
+                    }
+                }
+                if(props.unwatchedVideo) {
+                    +"Mark as watched"
+                }
+                else {
+                    +"Mark as unwatched"
+                }
             }
             img {
                 attrs {
