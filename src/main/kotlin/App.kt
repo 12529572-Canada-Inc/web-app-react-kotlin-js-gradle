@@ -4,6 +4,7 @@ import kotlinx.css.*
 import styled.css
 import styled.styledDiv
 
+// Define interfaces
 external interface Video {
     val id: Int
     val title: String
@@ -11,6 +12,7 @@ external interface Video {
     val videoUrl: String
 }
 
+// Define data classes
 data class KotlinVideo(
     override val id: Int,
     override val title: String,
@@ -18,7 +20,7 @@ data class KotlinVideo(
     override val videoUrl: String
 ) : Video
 
-// Create list of watched/ unwatched videos
+// Define data
 val unwatchedVideos = listOf(
     KotlinVideo(1, "Building and breaking things", "John Doe", "https://youtu.be/PsaFVLr8t4E"),
     KotlinVideo(2, "The development process", "Jane Smith", "https://youtu.be/PsaFVLr8t4E"),
@@ -29,6 +31,12 @@ val watchedVideos = listOf(
     KotlinVideo(4, "Mouse-less development", "Tom Jerry", "https://youtu.be/PsaFVLr8t4E")
 )
 
+// Define state
+external interface AppState : RState {
+    var currentVideo: Video?
+}
+
+// Define React component class
 @JsExport
 class App : RComponent<RProps, RState>() {
     override fun RBuilder.render() {

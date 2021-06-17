@@ -12,7 +12,7 @@ external interface VideoListState: RState {
     var selectedVideo: Video?
 }
 
-// Define class
+// Define React component class
 @JsExport
 class VideoList: RComponent<VideoListProps, VideoListState>() {
     override fun RBuilder.render() {
