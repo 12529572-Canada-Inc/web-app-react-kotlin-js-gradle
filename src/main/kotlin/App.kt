@@ -70,6 +70,7 @@ class App : RComponent<RProps, AppState>() {
         counter {
             name = "Kotlin Kounter"
         }
+        randomFact {}
         div {
             h3 {
                 +"Videos to watch"
