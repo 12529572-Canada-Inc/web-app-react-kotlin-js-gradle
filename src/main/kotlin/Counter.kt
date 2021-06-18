@@ -1,7 +1,7 @@
 import kotlinx.html.js.onClickFunction
 import react.*
 import react.dom.button
-import react.dom.h1
+import react.dom.h2
 
 external interface CounterProps: RProps {
     var name: String
@@ -9,7 +9,7 @@ external interface CounterProps: RProps {
 
 val counter = functionalComponent<CounterProps> { props ->
     val (count, setCount) = useState(0)
-    h1 {
+    h2 {
         +props.name
     }
     button {

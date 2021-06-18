@@ -67,6 +67,9 @@ class App : RComponent<RProps, AppState>() {
         h1 {
             +"KotlinConf Explorer"
         }
+        counter {
+            name = "Kotlin Kounter"
+        }
         div {
             h3 {
                 +"Videos to watch"
