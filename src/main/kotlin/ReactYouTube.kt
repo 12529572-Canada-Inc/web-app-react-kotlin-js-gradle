@@ -8,6 +8,6 @@ external interface ReactYouTubeProps : RProps {
     var url: String
 }
 
-// Define class
+// Define classes
 @JsName("ReactYouTubeLite")
 external val reactPlayer: RClass<ReactYouTubeProps>
