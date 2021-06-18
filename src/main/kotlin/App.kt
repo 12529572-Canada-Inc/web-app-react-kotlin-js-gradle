@@ -1,3 +1,5 @@
+import kotlinx.browser.window
+import kotlinx.coroutines.await
 import react.*
 import react.dom.*
 
@@ -16,6 +18,16 @@ data class KotlinVideo(
     override val speaker: String,
     override val videoUrl: String
 ) : Video
+
+// Define methods
+suspend fun fetchVideo(id: Int): Video {
+    val response = window
+        .fetch("https://my-json-server.typicode.com/kotlin-hands-on/kotlinconf-json/videos/$id")
+        .await()
+        .json()
+        .await()
+    return response as Video
+}
 
 // Define state
 external interface AppState : RState {
